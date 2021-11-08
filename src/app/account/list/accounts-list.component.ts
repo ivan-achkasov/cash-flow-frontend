@@ -8,14 +8,15 @@ import {AccountsListService} from "./accounts-list.service";
 })
 export class AccountsListComponent implements OnInit {
 
+  displayedColumns: string[] = ['id', 'name', 'amount'];
+
   accounts: any;
 
-  constructor(private accountsListService: AccountsListService) { }
+  constructor(private accountsListService: AccountsListService) {}
 
   ngOnInit(): void {
     this.accountsListService.getAccounts().subscribe((data: any) => {
       this.accounts = data;
     });
   }
-
 }
