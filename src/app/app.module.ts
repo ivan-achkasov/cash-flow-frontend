@@ -8,14 +8,26 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from "@angular/material/table";
+import {RouterModule, Routes} from "@angular/router";
+import { NotFoundComponent } from './common/not-found/not-found.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
+const appRoutes: Routes =[
+  { path: '', component: DashboardComponent },
+  { path: 'accounts', component: AccountsListComponent },
+  { path: '**', component: NotFoundComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    AccountsListComponent
+    AccountsListComponent,
+    NotFoundComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(appRoutes),
     AppRoutingModule,
     HttpClientModule,
     MatTableModule,

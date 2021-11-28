@@ -11,6 +11,5 @@ export class AccountsListService {
 
   getAccounts(): any {
     return this.http.get("http://localhost:8080/accounts");
-
   }
 }
